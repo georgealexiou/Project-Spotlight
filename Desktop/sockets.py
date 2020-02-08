@@ -3,7 +3,7 @@ import socket
 
 def server_program():
     # get the hostname
-    host = 'localhost'
+    host = ''
     port = 8888  # initiate port no above 1024
 
     server_socket = socket.socket()  # get instance
@@ -21,8 +21,8 @@ def server_program():
             # if data is not received break
             break
         print("from connected user: " + str(data))
-        data = input(' -> ')
-        conn.send(data.encode())  # send data to the client
+        # data = input(' -> ')
+        # conn.send(data.encode())  # send data to the client
 
     conn.close()  # close the connection
 

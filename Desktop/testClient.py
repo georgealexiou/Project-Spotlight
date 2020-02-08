@@ -2,7 +2,7 @@ import socket
 
 
 def client_program():
-    host = 'localhost' # as both code is running on same pc
+    host = '10.14.202.113' # as both code is running on same pc
     port = 8888  # socket server port number
 
     client_socket = socket.socket()  # instantiate
@@ -12,9 +12,9 @@ def client_program():
 
     while message.lower().strip() != 'bye':
         client_socket.send(message.encode())  # send message
-        data = client_socket.recv(1024).decode()  # receive response
+        # data = client_socket.recv(1024).decode()  # receive response
 
-        print('Received from server: ' + data)  # show in terminal
+        # print('Received from server: ' + data)  # show in terminal
 
         message = input(" -> ")  # again take input
 
