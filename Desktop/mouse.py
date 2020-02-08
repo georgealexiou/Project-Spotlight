@@ -2,7 +2,7 @@ from pynput.mouse import Button, Controller
 import time
 
 import win32api
-import time
+
 import win32gui
 import win32con
 import ctypes
@@ -11,6 +11,10 @@ class Mouse:
 
     def _init_():
         self.controller = Controller()
+        self.hold = win32gui.LoadImage(0, 32512, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_SHARED )
+        self.hsave = ctypes.windll.user32.CopyImage(hold, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_COPYFROMRESOURCE)
+        self.hnew1 = win32gui.LoadImage(0, 'cursor_files/mouse_up_cursor.cur', win32con.IMAGE_CURSOR, 0, 0, win32con.LR_LOADFROMFILE);
+        self.hnew2 = win32gui.LoadImage(0, 'cursor_files/mouse_down_cursor.cur', win32con.IMAGE_CURSOR, 0, 0, win32con.LR_LOADFROMFILE);
         win_cursor_red()
 
     # prints pointer position
@@ -52,34 +56,34 @@ class Mouse:
 
     #! idk if this works we need to test it
     #change to red
-    def win_cursor_red():
+    def win_cursor_red(self):
         hold = win32gui.LoadImage(0, 32512, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_SHARED )
         hsave = ctypes.windll.user32.CopyImage(hold, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_COPYFROMRESOURCE)
         hnew = win32gui.LoadImage(0, 'cursor_files/mouse_up_cursor.cur', win32con.IMAGE_CURSOR, 0, 0, win32con.LR_LOADFROMFILE);
         ctypes.windll.user32.SetSystemCursor(hnew, 32512)
     
     #change to blue
-    def win_cursor_blue():
+    def win_cursor_blue(self):
         hold = win32gui.LoadImage(0, 32512, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_SHARED )
         hsave = ctypes.windll.user32.CopyImage(hold, win32con.IMAGE_CURSOR, 0, 0, win32con.LR_COPYFROMRESOURCE)
         hnew = win32gui.LoadImage(0, 'cursor_files/mouse_down_cursor.cur', win32con.IMAGE_CURSOR, 0, 0, win32con.LR_LOADFROMFILE);
         ctypes.windll.user32.SetSystemCursor(hnew, 32512)
 
     # change to up arrow
-    def win_cursor_scroll_up():
+    def win_cursor_scroll_up(self):
         pass
 
     # change to down arrow
-    def win_cursor_scroll_down():
+    def win_cursor_scroll_down(self):
         pass
 
     #reset to normal
-    def win_cursor_reset():
+    def win_cursor_reset(self):
         ctypes.windll.user32.SetSystemCursor(hsave, 32512)
 
 
 mouse = Mouse()
-mouse.set_position(100,100)
-mouse.press(3)
+#mouse.set_position(100,100)
+#mouse.press(3)
 time.sleep(2)
-win_cursor_reset()
+mouse.win_cursor_reset()
