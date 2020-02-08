@@ -79,7 +79,7 @@ class Mouse:
 
 
 mouse = Mouse()
-set_position(100,100)
-win_cursor_blue()
+mouse.set_position(100,100)
+mouse.press(3)
 time.sleep(2)
 win_cursor_reset()
