@@ -1,35 +1,32 @@
 def parser():
-    txt = "Mouse_Coordinates:1,2"
+    txt = "Right_Click:1,2"
 
     inputText = txt.partition(":")
 
-    print(inputText[2])
-
-    if inputText[2] == "Mouse_Coordinates":
+    if inputText[0] == "Mouse_Coordinates":
         cOord = inputText[2].partition(",")
-        mouse_display(cOord[1], cOord[2])
-    elif inputText[2] == "Scroll":
+        mouse_display(cOord[0], cOord[2])
+    elif inputText[0] == "Scroll":
         cOord = inputText[2].partition(",")
         scroll(0, cOord[2])
-    elif inputText[2] == "Pressed_Down":
-        pressed_down()
-    elif inputText[2] == "Released":
-        release()
+    elif inputText[0] == "Left_Click":
+        left_click()
+    elif inputText[0] == "Right_Click":
+        right_click()
+    else:
+        print("Wrong input")
 
 
 def mouse_display(x, y):
     print(x, y)
 
+def left_click():
+    print("Left click")
+
+def right_click():
+    print("Right click")
 
 def scroll(x, y):
     print(x, y)
-
-
-def pressed_down():
-    print("Pressed down")
-
-
-def release():
-    print("Released")
 
 parser()
