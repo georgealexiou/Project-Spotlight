@@ -20,7 +20,7 @@ class Parser:
         if key == 'Cursor_Right':
             if value == 'Click':
                 cursor.right_click()
-        elif message == 'Cursor_Left':
+        elif key == 'Cursor_Left':
             if value == 'Click':
                 cursor.left_click()
             
