@@ -1,11 +1,11 @@
-from cursor import Cursor
+import mouse.py as Mouse
 import tkinter as tk
 
 root = tk.Tk()
 screen_width = root.winfo_screenwidth()
 screen_height = root.winfo_screenheight()
 
-cursor = Cursor()
+mouse = Mouse.Mouse()
 
 def parse(message):
         
@@ -13,33 +13,26 @@ def parse(message):
     value = message.split(":")[1]
 
     # clicks
-    if key == 'Cursor_Right':
+    if key == 'Mouse_Right':
         if value == 'Click':
-            cursor.right_click()
-    elif message == 'Cursor_Left':
+            mouse.right_click()
+    elif message == 'Mouse_Left':
         if value == 'Click':
-            cursor.left_click()
+            mouse.left_click()
         
     # scrolling
     #TODO: may have to change this to support faster scrolling
-    elif key == 'Cursor_Scroll':
+    elif key == 'Mouse_Scroll':
         if value == 'Down':
-            cursor.scroll(0, 1)
+            mouse.scroll(0, 1)
         elif value == 'Up':
-            cursor.scroll(0, -1)
+            mouse.scroll(0, -1)
         
-    # cursor movement
-    elif key == 'Cursor_Move':
-        x = int(float(value.split(',')[0]) * screen_width)
-        y = int(float(message.split(',')[1]) * screen_height)
-
-        cursor.set_position(x,y)
+    # mouse movement
+    elif key == 'Mouse_Move':
+        x = value.split(',')[0].split * screen_width
+        y = message.split(',')[1] * screen_height
     
     # error case
     else:
         print ('Invalid message - packet ignored')
-
-parse("Cursor_Move:0.5,0.5")
-print ("Screen rez {} {} ".format(screen_width, screen_height))
-cursor.spotlight_cursor()
-cursor.cursor_reset()

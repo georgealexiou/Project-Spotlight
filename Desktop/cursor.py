@@ -32,6 +32,8 @@ class Cursor:
         # The new mouse icon replacing the I-beam.
         self.h32513new = win32gui.LoadImage(0, 'cursor_files/cursor_0.cur', win32con.IMAGE_CURSOR, 0, 0, win32con.LR_LOADFROMFILE)
 
+        self.spotlight_cursor()
+
     # prints pointer position
     def debug(self):
         print("Mouse is at {0}".format(self.controller.position))
@@ -71,9 +73,8 @@ class Cursor:
         ctypes.windll.user32.SetSystemCursor(self.h32649save, 32649)
         ctypes.windll.user32.SetSystemCursor(self.h32513save, 32513)
 
-"""
+
 mouse = Cursor()
 mouse.set_position(1000,500)
 time.sleep(2)
 mouse.cursor_reset()
-"""
