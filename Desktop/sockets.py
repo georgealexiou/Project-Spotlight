@@ -1,5 +1,5 @@
 import socket
-import packet_parser import Parser
+from packet_parser import Parser
 
 parser = Parser()
 
@@ -24,7 +24,7 @@ def server_program():
             break
         elif data == 'bye':
             conn.close()
-            
+
         parser.receive_message(str(data))
         print("from connected user: " + str(data))
         # data = input(' -> ')
