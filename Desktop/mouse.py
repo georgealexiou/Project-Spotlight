@@ -38,6 +38,7 @@ class Mouse:
     # press mouse for x amount of seconds
     def press(self, seconds):
         mouse.press(Button.left)
+        win_cursor_blue()
         time.sleep(seconds)
         mouse.release(Button.left)
 
@@ -47,6 +48,7 @@ class Mouse:
     #* dx = horizontal scrolling (not needed)
     def scroll(self, dx, dy):
         mouse.scroll(dx, dy)
+
 
     #! idk if this works we need to test it
     #change to red
@@ -74,3 +76,10 @@ class Mouse:
     #reset to normal
     def win_cursor_reset():
         ctypes.windll.user32.SetSystemCursor(hsave, 32512)
+
+
+mouse = Mouse()
+set_position(100,100)
+win_cursor_blue()
+time.sleep(2)
+win_cursor_reset()
