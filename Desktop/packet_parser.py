@@ -12,9 +12,7 @@ class Parser:
         pass
 
     def receive_message(self, message):
-        self.key = message.split(":")[0]
-        self.value = message.split(":")[1]
-        self.parse(self.key, self.value)
+        self.parse(message.split(":")[0], message.split(":")[1])
 
     def parse(self, key, value):
 
