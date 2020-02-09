@@ -24,6 +24,7 @@ Find your device's ip adress. You get your IP adress by finding your IPv4 Adress
 ### Step 3
 From cmd or terminal run the following (assuming you are in the root directory)
 > Python Desktop/server_test.py
+
 > python3 Desktop/server_test.py (mac/linux)
 
 ### Step 4
