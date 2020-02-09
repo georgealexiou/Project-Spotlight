@@ -25,10 +25,10 @@ Find your device's ip adress. You get your IP adress by finding your IPv4 Adress
 Navigate to the root directory of the project on your terminal and run the following (windows and mac/linux respectivey)
 > Python Desktop/server_test.py
 
-> python3 Desktop/server_test.py (mac/linux)
+> python3 Desktop/server_test.py
 
 ### Step 4
 When you open the app on your Android Device input the correct IP Adress in the correct field
 
 ### Done!
-> You are up and running!
+You are up and running!
