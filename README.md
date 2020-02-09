@@ -16,14 +16,10 @@ To run our application you need:
 Steps:
   1. Download the .apk file from the repo to your android device
   3. Find your device's ip adress
-  ~~~
-      ipconfig
-  ~~~
+  ~~~ ipconfig~~~
      You get your IP adress by finding your IPv4 Adress from the listed adresses
   2. From cmd or terminal run (assuming you are in the project's root directory)
-  ~~~
-      Python Desktop/server_test.py
-      python3 Desktop/server_test.py (mac/linux)
-  ~~~ 
+  ~~~Python Desktop/server_test.py
+      python3 Desktop/server_test.py (mac/linux)~~~ 
   3. When you open the app on your Android Device input the correct IP Adress in the correct field
   4. You are up and running!
