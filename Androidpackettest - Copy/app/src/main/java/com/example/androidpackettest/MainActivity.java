@@ -60,57 +60,13 @@ public class MainActivity extends AppCompatActivity {
                 openActivity2();
             }
         });
-        toggleButton = findViewById(R.id.toggleButton);
-        toggleSwitch = findViewById(R.id.switch1);
-        toggleButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                toggleSwitch.toggle();
-                xCoordinate++;
-                yCoordinate += 3;
-            }
-        });
 
         ipTextBox = findViewById(R.id.ipText);
         portTextBox = findViewById(R.id.portText);
-        messageTextBox = findViewById(R.id.messageTextView);
 
-        startButton = findViewById(R.id.startButton);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                myThread = new SenderThread(IP_ADDRESS, PORT, "heheheheh");
-//                myThread.start();
-//                openActivity2();
-            }
-        });
         targetIp = ipTextBox.getText().toString();
         targetPort = portTextBox.getText().toString();
-        sendButton = findViewById(R.id.sendButton);
-        sendButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-//                Thread newThread = new Thread(new Runnable() {
-//                    @Override
-//                    public void run() {
-//                        SocketAddress sockaddr = new InetSocketAddress(ipTextBox.getText().toString(), Integer.parseInt(portTextBox.getText().toString()));
-//
-//                        Socket socket = new Socket();
-//
-//                        try {
-//                            socket.connect(sockaddr, 1000);
-//                            OutputStream out = socket.getOutputStream();
-//                            out.write(messageTextBox.getText().toString().getBytes());
-//                            out.flush();
-//                            socket.close();
-//                        } catch (IOException e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                });
-//                newThread.start();
-            }
-        });
+
     }
 
     @Override

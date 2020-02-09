@@ -34,6 +34,7 @@ public class Activity2 extends AppCompatActivity  {
     static int yCoordinate = 0;
 
     Button buttonRight,buttonLeft,buttonScrollU,buttonScrollD,buttonExit;
+
     ImageView canvasImg;
     LinearLayout layer;
     float downx = 0, downy = 0, upx = 0, upy = 0;
@@ -61,6 +62,7 @@ public class Activity2 extends AppCompatActivity  {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_2);
+
 
         buttonExit = findViewById(R.id.buttonExit);
         buttonExit.setOnClickListener(new View.OnClickListener() {
@@ -104,6 +106,8 @@ public class Activity2 extends AppCompatActivity  {
         layer = findViewById(R.id.layout);
 
 
+//        view =  findViewById(R.id.canvasView);
+
         ViewGroup.LayoutParams canvasLayout = (FrameLayout.LayoutParams) canvasImg.getLayoutParams();
 
         Point size = new Point();
@@ -117,39 +121,41 @@ public class Activity2 extends AppCompatActivity  {
             int i = 0;
 
             public boolean onTouch(View v, MotionEvent event) {
-                Log.d("aa", " " + event.getAction());
-                Log.d("aaa", "i");
-                Bitmap imageBitmap = Bitmap.createBitmap(canvasImg.getWidth(), canvasImg.getHeight(), Bitmap.Config.ARGB_8888);
-                canvas = new Canvas(imageBitmap);
-                float scale = getResources().getDisplayMetrics().density;
-                p = new Paint();
-                Paint p2 = new Paint();
-                Paint p3 = new Paint();
-                p3.setColor(Color.RED);
-                p2.setColor(Color.rgb(150, 150, 150));
-                p.setColor(Color.BLUE);
-                p.setStrokeWidth(p.getStrokeWidth() + 6);
+                Log.d("asd", "EVENT!!!!");
+                    Log.d("aa", " " + event.getAction());
+                    Log.d("aaa", "i");
+                    Bitmap imageBitmap = Bitmap.createBitmap(canvasImg.getWidth(), canvasImg.getHeight(), Bitmap.Config.ARGB_8888);
+                    canvas = new Canvas(imageBitmap);
+                    float scale = getResources().getDisplayMetrics().density;
+                    p = new Paint();
+                    Paint p2 = new Paint();
+                    Paint p3 = new Paint();
+                    p3.setColor(Color.RED);
+                    p2.setColor(Color.rgb(150, 150, 150));
+                    p.setColor(Color.BLUE);
+                    p.setStrokeWidth(p.getStrokeWidth() + 6);
 
-                canvas.drawRect(0, 0, canvasImg.getWidth(), canvasImg.getHeight(), p2);
-                canvas.drawLine(canvasImg.getWidth() / 3, 0, canvasImg.getWidth() / 3, canvasImg.getHeight(), p);
-                canvas.drawLine(2 * canvasImg.getWidth() / 3, 0, 2 * canvasImg.getWidth() / 3, canvasImg.getHeight(), p);
+                    canvas.drawRect(0, 0, canvasImg.getWidth(), canvasImg.getHeight(), p2);
+                    canvas.drawLine(canvasImg.getWidth() / 3, 0, canvasImg.getWidth() / 3, canvasImg.getHeight(), p);
+                    canvas.drawLine(2 * canvasImg.getWidth() / 3, 0, 2 * canvasImg.getWidth() / 3, canvasImg.getHeight(), p);
 
-                canvas.drawLine(0, canvasImg.getHeight() / 3, canvasImg.getWidth(), canvasImg.getHeight() / 3, p);
-                canvas.drawLine(0, 2 * canvasImg.getHeight() / 3, 2 * canvasImg.getWidth(), 2 * canvasImg.getHeight() / 3, p);
+                    canvas.drawLine(0, canvasImg.getHeight() / 3, canvasImg.getWidth(), canvasImg.getHeight() / 3, p);
+                    canvas.drawLine(0, 2 * canvasImg.getHeight() / 3, 2 * canvasImg.getWidth(), 2 * canvasImg.getHeight() / 3, p);
 
-                canvas.drawCircle(event.getX(), event.getY(), 20, p3);
-                Log.d("aaa", event.getX() + " " + event.getY());
-                canvasImg.setImageBitmap(imageBitmap);
+                    canvas.drawCircle(event.getX(), event.getY(), 20, p3);
+                    Log.d("aaa", event.getX() + " " + event.getY());
+                    canvasImg.setImageBitmap(imageBitmap);
 
 
-                float rX = event.getX() / canvasImg.getWidth();
-                float rY = event.getY() / canvasImg.getHeight();
+                    float rX = event.getX() / canvasImg.getWidth();
+                    float rY = event.getY() / canvasImg.getHeight();
 
-                comms.send("Cursor_Move:"+rX+","+rY);
-
-                return false;
-            }
+                    comms.send("Cursor_Move:" + rX + "," + rY);
+                    return true;
+                }
         });
+
+
     }
 
     class Communications{
