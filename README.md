@@ -22,7 +22,7 @@ Find your device's ip adress. You get your IP adress by finding your IPv4 Adress
 > ipconfig
 
 ### Step 3
-From cmd or terminal run the following (assuming you are in the root directory)
+Navigate to the root directory of the project on your terminal and run the following (windows and mac/linux respectivey)
 > Python Desktop/server_test.py
 
 > python3 Desktop/server_test.py (mac/linux)
