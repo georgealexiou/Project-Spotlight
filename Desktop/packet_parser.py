@@ -43,6 +43,3 @@ class Parser:
         else:
             print('{}:{}'.format(key,value))
             print ('Invalid message - packet ignored')
-
-#parser = Parser()
-#parser.receive_message("Cursor_Move:0.5,0.2")

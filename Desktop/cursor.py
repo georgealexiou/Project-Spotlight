@@ -77,3 +77,5 @@ mouse.set_position(1000,500)
 time.sleep(2)
 mouse.cursor_reset()
 """
+mouse = Cursor()
+mouse.scroll(0,-20)
