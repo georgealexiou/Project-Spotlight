@@ -28,9 +28,9 @@ class Parser:
         #TODO: may have to change this to support faster scrolling
         elif key == 'Cursor_Scroll':
             if value == 'Down':
-                self.cursor.scroll(0, 1)
+                self.cursor.scroll(0, -500)
             elif value == 'Up':
-                self.cursor.scroll(0, -1)
+                self.cursor.scroll(0, 500)
             
         # cursor movement
         elif key == 'Cursor_Move':
@@ -39,7 +39,9 @@ class Parser:
 
             self.cursor.set_position(x,y)
         
-        # error case
+        # Shutting down case.
         else:
-            print('{}:{}'.format(key,value))
-            print ('Invalid message - packet ignored')
+            self.cursor.cursor_reset()
+
+#parser = Parser()
+#parser.receive_message("Cursor_Move:0.5,0.2")
